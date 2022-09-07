@@ -1,5 +1,6 @@
 import {api} from 'boot/axios';
 import {Notify} from "quasar";
+import {ErrorHandlePrint} from "src/Utils/ErrorHandlePrint";
 
 const prefixUrl = 'districts';
 const state = {
@@ -50,7 +51,7 @@ create({commit},payload){
 
       commit('SET_ITEMS',res.data)
     }).catch(er =>{
-      console.log("Hata District model  >>>>", er)
+      ErrorHandlePrint(er)
     })
   },
   update({commit},payload){
@@ -63,7 +64,7 @@ create({commit},payload){
       });
       return true
     }).catch(er => {
-      console.log(er);
+      ErrorHandlePrint(er)
     })
   },
   destroy({commit},id){
@@ -71,7 +72,7 @@ create({commit},payload){
       commit('SET_REMOVE',id);
       return true
     }).catch(er => {
-      console.log(er)
+      ErrorHandlePrint(er)
     });
   }
 }

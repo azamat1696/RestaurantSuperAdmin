@@ -1,5 +1,6 @@
 import {api} from "boot/axios";
 import {Notify} from "quasar";
+import {ErrorHandlePrint} from "src/Utils/ErrorHandlePrint";
 const prefixUrl = "cities"
 
 const state = {
@@ -42,7 +43,7 @@ const actions = {
      });
      return true
    }).catch( er => {
-     console.log(er.response);
+     ErrorHandlePrint(er.response);
    })
  },
   update({commit},payload){
@@ -56,14 +57,14 @@ const actions = {
        });
        return true
      }).catch(er => {
-       console.log(er);
+       ErrorHandlePrint(er);
      })
   },
   get({commit}) {
      api.get(prefixUrl).then(res => {
        commit('SET_ITEMS',res.data)
      }).catch(er => {
-       console.log("Hata Country Model >>>>>>>>>",er)
+       ErrorHandlePrint(er)
      })
   },
   destroy({commit},id){

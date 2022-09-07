@@ -65,7 +65,7 @@
         <q-bar class="q-pa-md bg-blue-grey-9 text-white" style="height: 50px">
           <div class="text-h4 " >Yeni Kullanıcı Oluştur</div>
           <q-space />
-          <q-btn dense flat icon="close" v-close-popup>
+          <q-btn dense flat icon="close" v-close-popup @click="onReset">
             <q-tooltip>Kapat</q-tooltip>
           </q-btn>
         </q-bar>
