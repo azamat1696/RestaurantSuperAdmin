@@ -26,6 +26,7 @@ module.exports = configure(function (/* ctx */) {
       'i18n',
       'axios',
       'gmaps',
+      'laravel-echo',
       'customRouteInstance'
     ],
 

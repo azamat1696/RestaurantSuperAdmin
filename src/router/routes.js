@@ -43,6 +43,8 @@ const routes = [
       { path: '/place-events/rest-users', name: 'RestaurantUsers', component: () => import('pages/RestaurantUsers/RestaurantUser.vue') },
       { path: '/place-events/customers', name: 'Customers', component: () => import('pages/Customers/Customers.vue') },
       { path: '/place-events/super-user', name: 'SuperUser', component: () => import('pages/SuperUser/SuperUser.vue') },
+      { path: 'reservations', name: 'Reservations', component: () => import('pages/Reservations/Reservations.vue') },
+
 
     ]
 

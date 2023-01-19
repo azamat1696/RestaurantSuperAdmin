@@ -10,7 +10,7 @@ import EventsModule from "src/store/events/EventsModule";
 import RestUsersModule from "src/store/restaurant-users/RestUsersModule";
 import SuperUserModule from "src/store/super-user/SuperUserModule";
 import SliderModule from "src/store/settings-module/SliderModule";
-
+import ReservationsModule from "src/store/reservations/ReservationsModule";
 // import example from './module-example'
 
 /*
@@ -34,7 +34,8 @@ export default store(function (/* { ssrContext } */) {
       CustomersModule,
       EventsModule,
       SuperUserModule,
-      SliderModule
+      SliderModule,
+      ReservationsModule
     },
 
     // enable strict mode (adds overhead!)

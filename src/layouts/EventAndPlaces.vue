@@ -71,6 +71,13 @@ const menuList = [
     separator: true,
     name:'SuperUser'
   },
+  {
+    id:6,
+    icon: 'update',
+    label: 'Rezervasyonlar',
+    separator: true,
+    name:'Reservations'
+  },
 ]
 export default {
   name: "EventAndPlaces",
