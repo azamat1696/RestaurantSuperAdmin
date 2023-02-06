@@ -2,7 +2,9 @@
 
   <q-header elevated>
     <q-toolbar>
-      <q-img @click="this.$router.push('/')"  src="./../../public/icons/logo-beyaz.png" height="50px" width="50px"   style="color: #fff  ;object-fit: fill"/>
+      <div class="q-pa-xs">
+        <q-img @click="this.$router.push('/')"  src="./../../public/icons/dark_logo.png"  width="40px"   style="color: #fff  ;object-fit: cover"/>
+      </div>
       <q-toolbar-title>
         Super Admin
       </q-toolbar-title>

@@ -56,11 +56,11 @@
           <q-td class="text-center">
             {{ props.row.EventDescription.substring(1,30) }}
           </q-td>
-          <q-td>
-            <q-chip  square :color="+props.row.Status ===1 ? 'positive' :'negative'" text-color="white" :icon="+props.row.Status ===1 ?'done' : 'clear'" size="13px">
-              {{ (+props.row.Status === 1) ? 'Açık' :'Kapalı' }}
-            </q-chip>
-          </q-td>
+<!--          <q-td>-->
+<!--            <q-chip  square :color="+props.row.Status ===1 ? 'positive' :'negative'" text-color="white" :icon="+props.row.Status ===1 ?'done' : 'clear'" size="13px">-->
+<!--              {{ (+props.row.Status === 1) ? 'Açık' :'Kapalı' }}-->
+<!--            </q-chip>-->
+<!--          </q-td>-->
           <!--          <q-td class="text-center">-->
           <!--            {{ props.row.EndDateTime }}-->
           <!--          </q-td>-->
@@ -84,6 +84,9 @@
 <script>
 import {  computed, ref } from   "vue"
 import { date } from "quasar"
+import Echo from 'laravel-echo'
+import Pusher  from "pusher-js";
+window.Pusher = Pusher
 
 const eventColumns = [
   { name: 'id', align:'center', label: 'ID', field: 'id' },
@@ -93,7 +96,7 @@ const eventColumns = [
   { name: 'EventName', align: 'center', label: 'Etkinlik Adı', field: 'EventName', sortable: true },
   { name: 'EventDescription', align: 'center', label: 'Açıklama', field: 'EventDescription', sortable: true },
   { name: 'guestCustomer', align: 'center', label: 'Kişi sayısı', field: 'guestCustomer', sortable: true },
-  { name: 'Status', align: 'center', label: 'Durumu', field: 'Status', sortable: true },
+  // { name: 'Status', align: 'center', label: 'Durumu', field: 'Status', sortable: true },
 
 ]
 
@@ -116,20 +119,33 @@ export default {
     }
   },
   methods: {
-    listen() {
-      window.Echo.channel('channel').listen('ReservationsEvent', payload => {
-        console.log('Here')
-        console.log(payload)
-      })
-    }
+    // listen() {
+    //   window.Echo.channel('channel').listen('ReservationsEvent', payload => {
+    //     console.log('Here')
+    //     console.log(payload)
+    //   })
+    // }
   },
   mounted() {
-   this.$store.dispatch('ReservationsModule/get')
-    window.Echo.channel('channel')
-      .listen('ReservationsEvent',(e) => {
-        console.log(e)
-      })
-    this.listen()
+   // this.$store.dispatch('ReservationsModule/get')
+   //  window.Echo.channel('channel')
+   //    .listen('ReservationsEvent',(e) => {
+   //      console.log(e)
+   //    })
+   //  this.listen()
+
+    // window.Echo = new Echo({
+    //   broadcaster: 'pusher',
+    //   key: 'local',
+    //   cluster: 'mt1',
+    //   wsHost: 'localhost',
+    //   wsPort: 6001,
+    //   forceTLS: true,
+    //   disableStats: true
+    // })
+    // window.Echo.channel('channel').listen('ReservationsEvent', (e) => {
+    //   console.log(e.message)
+    // })
   },
   computed: {
     reservations(){
